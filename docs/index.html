@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RCTrans: Transparent Object Reconstruction in Natural Scene via Refractive Correspondence Estimation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="imgs/icon.png" type="image/png">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #e4e4e4;
+            color: #000;
+            margin-bottom: 30px;
+        }
+        
+        .container {
+            margin-bottom: 50px;
+        }
+        
+        .paper-content {
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            margin-bottom: 20px;
+        }
+        
+        .image {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        h2,
+        h3 {
+            text-align: center;
+        }
+        
+        #Video {
+            height: 700px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>RCTrans: Transparent Object Reconstruction</h1>
+        <h1>in Natural Scene via Refractive Correspondence Estimation</h1>
+        <h4>SIGGRAPH Asia’25 Conference Proceedings</h4>
+        <h6>
+            Fangzhou Gao, Yuzhen Kang, <a href="https://klkjjhjkhjhg.github.io" target="_blank">Lianghao Zhang</a>,
+            <a href="https://cgliwang.github.io" target="_blank">Li Wang</a> , Qishen Wang, <a href="http://cic.tju.edu.cn/faculty/zhangjiawan/index.htm" target="_blank">Jiawan Zhang</a>
+        </h6>
+        <a href="http://cic.tju.edu.cn/" target="_blank">College of Intelligence and Computing, Tianjin University</a>
+    </div>
+
+    <div class="container">
+        <div class="paper-content">
+            <h2>Abstract</h2>
+            <hr style="margin-top:0px">
+            <p>
+                Transparent object reconstruction in an uncontrolled natural scene is a challenging task due to its complex appearance. Existing methods optimize the object shape with RGB color as supervision, which suffer from locality and ambiguity, and fail to recover accurate structures. In this paper, we present RCTrans, which uses ray-background intersection as a more efficient constraint to achieve high-quality reconstruction, while maintaining a convenient setup. The key technology to achieve this is a novel pre-trained correspondence estimation network, which allows us to acquire ray-background correspondence under uncontrolled scenes and camera views. In addition, a confidence evaluation is introduced to protect the reconstruction from inaccurate estimated correspondence. Extensive experiments on both synthetic and real data demonstrate that our method can produce highly accurate results, without any extra acquisition burden. The code and dataset will be publicly available.
+            </p>
+            <div class="card-body" style="text-align: center;">
+                <button type="button" class="btn btn-dark" onclick="downloadPaper()">Paper</button>
+                <button type="button" class="btn btn-dark" onclick="downloadSupplementary()">Supplementary</button>
+                <button type="button" class="btn btn-dark" onclick="window.open('https://github.com/arkgao/NaturalTransRecon','_blank')">Code & Data</button>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Pipeline</h3>
+                <hr style="margin-top:0px">
+                <img class="image" src="imgs/overview.png">
+                <p>
+                    The overview of RCTrans. Starting from the multi-view images, RCTrans first leverages a pre-trained network and recovered environment lighting to estimate ray-background correspondence for each view. The following confidence evaluation filters those inaccurate results, while the remaining reliable correspondences are used to optimize the initial object shape through differentiable refractive ray tracing, leading to a precise shape. The correspondence is visualized in a similar way to optical flow, with its color map shown in the top left corner.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Capture Setup and Some Results</h3>
+                <hr style="margin-top:0px">
+                <img class="image" src="imgs/teaser.png">
+                <p>
+                    We present RCTrans, capable of reconstructing precise geometry from multi-view images in uncontrolled natural environments. With the convenient acquisition setup shown on the left, our method achieves accurate geometric reconstruction as demonstrated on the right.
+                </p>
+            </div>
+        </div>
+
+   </div>
+
+    <script>
+        function downloadPaper() {
+            var pdfPath = "pdf/main.pdf";
+            var link = document.createElement('a');
+            link.href = pdfPath;
+            link.target = "_blank";
+            link.download = "main.pdf";
+            link.click();
+        }
+
+
+        function downloadSupplementary() {
+            // Replace "path-to-your-pdf.pdf" with the actual path to your PDF file
+            var pdfPath = "pdf/supplementary.pdf";
+            var link = document.createElement('a');
+            link.href = pdfPath;
+            link.target = "_blank";
+            link.download = "supplementary.pdf";
+            link.click();
+        }
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
