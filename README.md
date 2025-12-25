@@ -28,7 +28,7 @@ We will release all the codes to facilitate the community. For now, we have orga
 The code for the reconstruction part is largely based on our last paper [NaturalTransRecon](https://github.com/arkgao/NaturalTransRecon). We use it to estimate the object masks, environment lighting and perform reconstruction. You may need to check our previou paper and code to better understand this program. And you can also use other methods to get masks, like the Grounded-SAM in recent work [TransparentGS](https://letianhuang.github.io/transparentgs/).
 
 ## Download Data
-You can download our synthetic and real data [here](https://drive.google.com/drive/folders/15g7lB6r1XMR8gNZi_8rZKjg2vkZpAdKy?usp=drive_link)
+You can download our synthetic and real data from [Google Drive](https://drive.google.com/drive/folders/15g7lB6r1XMR8gNZi_8rZKjg2vkZpAdKy?usp=drive_link)
 The data structure should be like:
 ```
 CorresTrans/
@@ -81,7 +81,7 @@ After preparing the data, you can run python script step by step as follows:
    ```shell
    python predict_correspondence.py --case CASE_NAME
    ```
-   As mentioned above, we still working on organizing this part and the file is empty now. For now, you can put our results into the exp/case_name/pred_correspondence and run the following code. (Note, use our predicted results from [here](https://drive.google.com/drive/folders/15g7lB6r1XMR8gNZi_8rZKjg2vkZpAdKy?usp=drive_link) rather than the ground-truth in data. And the result file is a little large, approximately 300 M for each case. )
+   As mentioned above, we still working on organizing this part and the file is empty now. For now, you can put our results into the exp/case_name/pred_correspondence and run the following code. (Note, use our predicted results from [Google Drive](https://drive.google.com/drive/folders/15g7lB6r1XMR8gNZi_8rZKjg2vkZpAdKy?usp=drive_link) rather than the ground-truth in data. And the result file is a little large, approximately 300 M for each case. )
 
 
 
@@ -136,7 +136,7 @@ python optim_transparent.py --case case_name --conf confs/optim_trans_withcolor.
 It would render the object with coarse-to-fine blurred environment map and use the rendered color to optimize the object.
 
 # Our results
-For reference and comparasion, we provide all our results [here](https://drive.google.com/drive/folders/15g7lB6r1XMR8gNZi_8rZKjg2vkZpAdKy?usp=drive_link).
+For reference and comparasion, we provide all our results in [Google Drive](https://drive.google.com/drive/folders/15g7lB6r1XMR8gNZi_8rZKjg2vkZpAdKy?usp=drive_link).
 
 # Citation
 ```
