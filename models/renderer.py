@@ -221,7 +221,6 @@ class NeuSRenderer:
 
         alpha = ((p + 1e-5) / (c + 1e-5)).reshape(batch_size, n_samples).clip(0.0, 1.0)
         
-        #todo maybe should use bounding box to guide the sample, instead of weight the sample after
         if self.obj_box is not None:
             bb_weights = self.get_bb_weights(pts, inverse_mode=True).reshape(batch_size, n_samples)
             hit_obj = ((1-bb_weights) * alpha).sum(-1)> 0.5

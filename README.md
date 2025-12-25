@@ -3,7 +3,7 @@ This is the official implementation of the paper "RCTrans: Transparent Object Re
 
 ![](asset/teaser.jpg)
 
-## [Project page] | [Paper] TODO
+## [Project page](https://arkgao.github.io/RCTrans/) | [Paper](docs/pdf/main.pdf)
 
 # TODO
 We will release all the codes to facilitate the community. For now, we have organized the code for the object reconstruction. But the codes for RCNet training/testing and codes for creating the training datasets involve complex frameworks. We are still organizing them to facilitate the reproduction with the least amount of configuration. We would try to release them all in Jan. 2026.
@@ -19,13 +19,13 @@ We will release all the codes to facilitate the community. For now, we have orga
 1. Install torch and torchvision according to your environment. For reference, we use torch==2.0.1+cu118.
 2. Install other packages.
     ```shell
-    git clone TODO
+    git clone https://github.com/arkgao/RCTrans.git
     cd RCTrans
     pip install -r requirements.txt
     ```
 
 # Reconstruction Code Usage
-The code for the reconstruction part is largely based on our last paper \link TODO. We use it to estimate the object masks, environment lighting and perform reconstruction. You may need to check our previou paper and code to better understand this program. And you can also use other methods to get masks, like the Grounded-SAM in recent work [TransparentGS](https://letianhuang.github.io/transparentgs/).
+The code for the reconstruction part is largely based on our last paper [NaturalTransRecon](https://github.com/arkgao/NaturalTransRecon). We use it to estimate the object masks, environment lighting and perform reconstruction. You may need to check our previou paper and code to better understand this program. And you can also use other methods to get masks, like the Grounded-SAM in recent work [TransparentGS](https://letianhuang.github.io/transparentgs/).
 
 ## Download Data
 You can download our synthetic and real data [here](https://drive.google.com/drive/folders/15g7lB6r1XMR8gNZi_8rZKjg2vkZpAdKy?usp=drive_link)
@@ -51,15 +51,7 @@ We assume z-axis points towards the sky and the the base of the object is perpen
 
 We collecte the open-source mesh files from [Wu et al.](https://vcc.tech/research/2018/FRT), [OmniObject3D](https://omniobject3d.github.io/) and [Poly Haven](https://polyhaven.com/), and place them in our data for the convenience of future users. The environment lighting we use is from the Lavel dataset and cannot be redistributed, so it is not included in the data.
 
-## Setup
-1. Install torch and torchvision according to your environment. For reference, we use torch==2.0.1+cu118.
-2. Install other packages.
-    ```shell
-    git clone TODO
-    cd RCTrans
-    pip install -r requirements.txt
-    ```
-Then, you can run python script step by step as follows:
+After preparing the data, you can run python script step by step as follows:
 
 ## Stage1: Preparation
 1. Frist, we use our previous method to get object masks and environment lighting. Since we remove the plane used in the previous paper, we made some modifications to the original code.
