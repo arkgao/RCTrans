@@ -109,5 +109,5 @@ python optim_transparent.py --case case_name --conf confs/optim_trans_withcolor.
 ```
 It would render the object with coarse-to-fine blurred environment map and use the rendered color to optimize the object.
 
-# Our results
+## Our results
 For reference and comparasion, we provide all our results in [Google Drive](https://drive.google.com/drive/folders/15g7lB6r1XMR8gNZi_8rZKjg2vkZpAdKy?usp=drive_link).

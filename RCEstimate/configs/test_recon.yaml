@@ -1,0 +1,26 @@
+# General settings
+name: ReconTest
+num_gpu: 1
+manual_seed: 10
+
+# Dataset and dataloader settings
+datasets:
+  val:
+    name: ReconDataset
+    type: ReconDataset
+    split: val
+    batch_size: 1
+
+# Network structures
+network:
+  reg_refine: true
+  refine_num: 6
+
+# Path settings
+path:
+  pretrain_network: ./pretrained_model/rcnet.pth  # MODIFY THIS PATH
+  strict_load_coarse: true
+
+# Validation settings
+val:
+  save_img: true

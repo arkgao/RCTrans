@@ -1,5 +1,8 @@
 TransRecon/data/
 TransRecon/exp/
+RCEstimate/experiments
+RCEstimate/results
+RCEstimate/tb_logger/
 .vscode/
 .claude/
 

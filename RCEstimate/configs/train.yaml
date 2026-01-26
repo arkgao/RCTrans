@@ -1,0 +1,71 @@
+# General settings
+name: RCNet_Training
+num_gpu: 1
+manual_seed: 10
+
+# Dataset and dataloader settings
+datasets:
+  train:
+    name: CorresDataset
+    type: CorresDataset
+    dataroot: $MODIFY_THIS_PATH
+    list_file: train_file.txt
+    split: train
+    phase: train
+    # data loader
+    use_shuffle: true
+    num_worker: 4
+    batch_size: 4
+
+  val:
+    name: CorresDataset
+    type: CorresDataset
+    dataroot: $MODIFY_THIS_PATH
+    list_file: val_file.txt
+    split: val
+    phase: val
+    batch_size: 4
+
+
+# Network structures
+network:
+  reg_refine: true
+  refine_num: 6
+
+# Path settings
+path:
+  strict_load_coarse: true
+
+# Training settings
+train:
+  optim_net:
+    type: AdamW
+    lr: !!float 2e-4
+    weight_decay: !!float 1e-4
+
+  scheduler:
+    type: TrueCosineAnnealingLR
+    T_max: 800000
+    eta_min: !!float 1e-7
+
+  total_iter: 800000
+  warmup_iter: 8000
+
+  # Losses
+  corres_opt:
+    loss_weight: 1.0
+
+# Validation settings
+val:
+  val_freq: !!float 2e4
+  save_img: true
+  metrics: ['epe', 'px3', 'px5', 'px10']
+
+# Progress bar
+pbar: true
+
+# Logging settings
+logger:
+  print_freq: 100
+  save_checkpoint_freq: !!float 5e4
+  use_tb_logger: true

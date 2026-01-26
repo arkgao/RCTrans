@@ -1,0 +1,29 @@
+# General settings
+name: RCNet_Validation
+num_gpu: 1
+manual_seed: 10
+
+# Dataset and dataloader settings
+datasets:
+  val:
+    name: CorresDataset
+    type: CorresDataset
+    split: val
+    dataroot: $MODIFY_THIS_PATH
+    list_file: val_file.txt
+    batch_size: 4
+
+# Network structures
+network:
+  reg_refine: true
+  refine_num: 6
+
+# Path settings
+path:
+  pretrain_network: ./pretrained_model/rcnet.pth  # MODIFY THIS PATH
+  strict_load_coarse: true
+
+# Validation settings
+val:
+  save_img: true
+  metrics: ['epe', 'px3', 'px5', 'px10']
